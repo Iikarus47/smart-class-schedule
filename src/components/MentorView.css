@@ -1,0 +1,140 @@
+/* MentorView.css */
+
+/* General Layout */
+.mentor-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* Header Section */
+  .mentor-dashboard h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .mentor-dashboard p {
+    font-size: 1rem;
+    color: #6b6b6b;
+    margin-bottom: 30px;
+  }
+  
+  /* Calendar Section */
+  .mentor-dashboard .react-calendar {
+    margin-bottom: 30px;
+    border: none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mentor-dashboard .available-date {
+    background-color: #90ee90 !important; /* Green background for available dates */
+  }
+  
+  /* Availability Toggle Button */
+  .mentor-dashboard .availability-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+  }
+  
+  .mentor-dashboard .availability-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .mentor-dashboard .availability-btn.available {
+    background-color: #008CBA;
+  }
+  
+  .mentor-dashboard .availability-btn:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
+  
+  /* Schedule Session Section */
+  .mentor-dashboard .schedule-session {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+  
+  .mentor-dashboard .schedule-session input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .mentor-dashboard .schedule-session button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mentor-dashboard .schedule-session button:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
+  
+  /* Scheduled Sessions List */
+  .mentor-dashboard .scheduled-sessions {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+  }
+  
+  .mentor-dashboard .scheduled-sessions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .mentor-dashboard .scheduled-sessions li {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mentor-dashboard .scheduled-sessions li:hover {
+    background-color: #f2f2f2;
+  }
+  
+  /* Available Dates List */
+  .mentor-dashboard .available-dates {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 30px;
+  }
+  
+  .mentor-dashboard .available-dates ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .mentor-dashboard .available-dates li {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  

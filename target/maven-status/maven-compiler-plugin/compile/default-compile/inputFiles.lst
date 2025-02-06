@@ -1,0 +1,11 @@
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/model/User.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/Session.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/SmartClassApplication.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/SessionController.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/repository/CourseRepository.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/controller/CourseController.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/repository/UserRepository.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/model/Course.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/service/CourseService.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/service/UserService.java
+/home/user/smartclassscheduling/src/main/java/com/example/smartclass/controller/UserController.java

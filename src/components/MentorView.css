@@ -1,0 +1,177 @@
+/* Import Google Fonts for elegant heading fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@400;600&display=swap');
+
+/* General Reset for the Dashboard */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mentor Dashboard Layout */
+.mentor-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f4f9; /* Soft background with light pink */
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Fade-in Keyframe */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Heading Styles with Elegant Fonts */
+h2 {
+  font-family: 'Playfair Display', serif; /* Elegant font for heading */
+  font-size: 2.5rem;
+  color: #5e2a8c; /* Dark purple for the heading */
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #7b4d7e; /* Lighter purple for subheading */
+  margin-bottom: 30px;
+}
+
+/* Calendar Section */
+.mentor-dashboard .react-calendar {
+  margin-bottom: 30px;
+  border: none;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Availability Toggle and Assign Button with hover animation */
+.mentor-dashboard .availability-btn {
+  padding: 12px 25px;
+  font-size: 1rem;
+  background-color: #b87ab9; /* Soft purple-pink background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 20px;
+  animation: fadeIn 2s ease-out 0.5s forwards;
+}
+
+.mentor-dashboard .availability-btn:hover {
+  background-color: #9b6b9e; /* Slightly darker purple for hover */
+  transform: scale(1.05);
+}
+
+.mentor-dashboard .availability-btn.available {
+  background-color: #6c4f9b; /* Different shade of purple when available */
+}
+
+.mentor-dashboard .availability-btn:disabled {
+  background-color: #dcd0e2; /* Lighter shade when disabled */
+  cursor: not-allowed;
+}
+
+/* Schedule Session Section with transition */
+.mentor-dashboard .schedule-session {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 30px;
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.mentor-dashboard .schedule-session input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d3a2d9; /* Soft pink border */
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.mentor-dashboard .schedule-session input:focus {
+  transform: scale(1.05);
+  border-color: #9b6b9e; /* Focus border color */
+}
+
+/* Scheduled Sessions List with fade-in */
+.mentor-dashboard .scheduled-sessions {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 30px;
+  animation: fadeIn 1.5s ease-out 1s forwards;
+}
+
+.mentor-dashboard .scheduled-sessions ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mentor-dashboard .scheduled-sessions li {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mentor-dashboard .scheduled-sessions li:hover {
+  background-color: #f2e6f4; /* Light pink background on hover */
+}
+
+/* Available Dates List with fade-in */
+.mentor-dashboard .available-dates {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 30px;
+  animation: fadeIn 2s ease-out 1.5s forwards;
+}
+
+.mentor-dashboard .available-dates ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.mentor-dashboard .available-dates li {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

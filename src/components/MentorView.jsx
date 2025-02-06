@@ -4,10 +4,10 @@ import "react-calendar/dist/Calendar.css"; // Import the calendar's CSS
 import "./MentorView.css"; // Import the custom CSS file
 
 function MentorView() {
-  const [isAvailable, setIsAvailable] = useState(false);
   const [mentorAvailability, setMentorAvailability] = useState(new Set());
   const [sessions, setSessions] = useState([]);
   const [newSession, setNewSession] = useState("");
+  const [subject, setSubject] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   // Load availability from localStorage on mount
@@ -34,26 +34,30 @@ function MentorView() {
     setSelectedDate(date);
   };
 
-  // Handle availability toggle
-  const toggleAvailability = () => {
+  // Handle availability toggle and session assignment
+  const handleSessionAssignment = () => {
     const dateString = selectedDate.toDateString();
     const newAvailability = new Set(mentorAvailability);
 
+    // Toggle availability and assign session with subject
     if (newAvailability.has(dateString)) {
-      newAvailability.delete(dateString); // Remove if already marked as available
+      newAvailability.delete(dateString); // If available, remove availability
     } else {
-      newAvailability.add(dateString); // Add if not marked
+      newAvailability.add(dateString); // If not available, add availability
     }
 
     setMentorAvailability(newAvailability);
-  };
 
-  // Handle scheduling a new session
-  const scheduleSession = () => {
-    if (newSession.trim() !== "" && mentorAvailability.has(selectedDate.toDateString())) {
-      const newSessionObj = { id: sessions.length + 1, session: newSession, date: selectedDate.toLocaleString() };
+    if (newSession.trim() !== "" && subject.trim() !== "") {
+      const newSessionObj = { 
+        id: sessions.length + 1, 
+        session: newSession, 
+        subject: subject, 
+        date: selectedDate.toLocaleString() 
+      };
       setSessions([...sessions, newSessionObj]);
       setNewSession(""); // Reset session input
+      setSubject(""); // Reset subject input
     }
   };
 
@@ -81,15 +85,15 @@ function MentorView() {
         tileClassName={tileClassName}
       />
 
-      {/* Availability Toggle */}
+      {/* Button for assigning session and toggling availability */}
       <button
-        onClick={toggleAvailability}
+        onClick={handleSessionAssignment}
         className={`availability-btn ${mentorAvailability.has(selectedDate.toDateString()) ? "available" : ""}`}
       >
-        {mentorAvailability.has(selectedDate.toDateString()) ? "Available for Sessions" : "Set Availability"}
+        {mentorAvailability.has(selectedDate.toDateString()) ? "Assigned Session" : "Set Availability & Assign Session"}
       </button>
 
-      {/* Schedule New Session */}
+      {/* Inputs for session details */}
       <div className="schedule-session">
         <input
           type="text"
@@ -97,12 +101,12 @@ function MentorView() {
           onChange={(e) => setNewSession(e.target.value)}
           placeholder="Enter session details"
         />
-        <button
-          onClick={scheduleSession}
-          disabled={!newSession.trim() || !mentorAvailability.has(selectedDate.toDateString())}
-        >
-          Schedule Session
-        </button>
+        <input
+          type="text"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+          placeholder="Enter subject"
+        />
       </div>
 
       {/* Display Scheduled Sessions */}
@@ -112,7 +116,7 @@ function MentorView() {
           <ul>
             {sessions.map((session) => (
               <li key={session.id}>
-                <p>{session.session}</p>
+                <p>{session.session} (Subject: {session.subject})</p>
                 <p>Scheduled on: {session.date}</p>
               </li>
             ))}

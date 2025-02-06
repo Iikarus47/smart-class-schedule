@@ -7,6 +7,18 @@ import MentorView from "./components/MentorView";
 import AdminView from "./components/AdminView";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import axios from 'axios';
+
+useEffect(() => {
+  axios.get('http://localhost:8080/api/sessions/available')
+    .then(response => {
+      setSessions(response.data);
+    })
+    .catch(error => {
+      console.error("Error fetching sessions", error);
+    });
+}, []);
+
 
 function App() {
   const [user, setUser] = useState(null);
